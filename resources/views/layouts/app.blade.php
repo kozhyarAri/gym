@@ -11,7 +11,7 @@
     @livewireStyles
 </head>
 
-<body>
+<body dir="rtl">
 
     @yield('content')
 

@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',App\Livewire\Login::class)->name('/');
+Route::get('/',App\Livewire\Login::class)->name('login');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard',App\Livewire\Dashboard::class)->name('dashboard');
+});
