@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->enum('gender',['male', 'female']);
+            $table->boolean('role')->default(0); // 0 for normal Admin && 1 for Super Admin
+            $table->string('phone_number')->unique(); // 07711576170
             $table->timestamps();
         });
     }
