@@ -18,10 +18,12 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
+            $table->enum('gender',['male', 'female']);
             $table->string('address');
             $table->string('phone_number')->unique();//07711576170
-            $table->enum('membership_status',['active', 'inactive', 'expired']);
+            $table->enum('membership_status',['active', 'inactive', 'expired'])->default('inactive');
             $table->string('card_num')->unique();
+            $table->timestamp('expire_date')->nullable;
             $table->longText('image');
             $table->timestamps();
         });

@@ -9,7 +9,7 @@ class Login extends Component
 {
     public function mount(){
         if(Auth::check()){
-            redirect(route('dashboard'));
+            redirect(route('admin.dashboard'));
         }
     }
 
@@ -21,7 +21,7 @@ class Login extends Component
             'password'=>'required|max:50',
         ]);
         if (Auth::attempt(['email'=>$this->email,'password'=>$this->password])) {
-            redirect(route('dashboard'));
+            redirect(route('admin.dashboard'));
         }else{
             session()->flash('invalid','زانیاریەکان هەڵەیە');
         }
@@ -29,6 +29,6 @@ class Login extends Component
 
     public function render()
     {
-        return view('livewire.auth.login')->extends('layouts.app')->section('content');
+        return view('livewire.auth.login')->extends('layouts.auth')->section('content');
     }
 }

@@ -15,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',App\Livewire\Login::class)->name('login');
 Route::middleware(['auth'])->group(function(){
-    Route::get('/dashboard',App\Livewire\Dashboard::class)->name('dashboard');
+    Route::get('admin/dashboard',App\Livewire\Dashboard::class)->name('admin.dashboard');
+    Route::get('admin/users',App\Livewire\Admin\ShowUsers::class)->name('admin.users');
+    Route::get('admin/addUser',App\Livewire\Admin\AddUsers::class)->name('admin.users.add');
+    Route::get('admin/editUser/{id}',App\Livewire\Admin\EditUsers::class)->name('admin.users.edit');
+
 });
