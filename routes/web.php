@@ -28,4 +28,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('admin/members',App\Livewire\Admin\Members\ShowMembers::class)->name('admin.members');
     Route::get('admin/addMembers',App\Livewire\Admin\Members\AddMembers::class)->name('admin.members.add');
     Route::get('admin/editMembers/{id}',App\Livewire\Admin\Members\EditMembers::class)->name('admin.members.edit');
+        //Payments
+        Route::get('admin/payments',App\Livewire\Admin\Payments\ShowPayments::class)->name('admin.payments');
+        Route::get('admin/addPayments',App\Livewire\Admin\Payments\AddPayments::class)->name('admin.payments.add');
+        // Route::get('admin/editMembers/{id}',App\Livewire\Admin\Members\EditMembers::class)->name('admin.members.edit');
 });

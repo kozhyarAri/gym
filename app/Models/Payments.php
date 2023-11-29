@@ -16,4 +16,17 @@ class Payments extends Model
         'amount',
         'payment_expire'
     ];
+    /**
+     * Get the user that owns the Payments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function member()
+    {
+        return $this->belongsTo(Members::class, 'member_id')->select('first_name');
+    }
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class, 'plan_id')->select('plan_name');
+    }
 }
